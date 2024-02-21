@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
             tabContents.forEach(function(content) {
                 if (content.getAttribute("id") === tabId) {
                     content.classList.add("active");
+                    // Charger dynamiquement le contenu de l'iframe uniquement si c'est nécessaire
+                    const iframes = content.querySelectorAll("iframe");
+                    iframes.forEach(function(iframe) {
+                        if (iframe.getAttribute("src") === "") {
+                            iframe.setAttribute("src", iframe.dataset.src);
+                        }
+                    });
                 } else {
                     content.classList.remove("active");
                 }
@@ -23,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         });
-
+        
         // Ajouter un écouteur d'événements pour le survol de la souris
         link.addEventListener("mouseenter", function() {
             this.style.backgroundColor = "green"; // Couleur verte au survol
