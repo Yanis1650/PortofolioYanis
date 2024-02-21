@@ -140,3 +140,12 @@ nav ul li a.active {
 .hidden {
     transform: translateY(-100%);
 }
+@media screen and (max-width: 600px) {
+    /* Styles spécifiques pour les écrans de petite taille */
+    .project img {
+        max-width: 100%; /* Redimensionnement des images pour s'adapter à la largeur de l'écran */
+        height: auto;
+    }
+
+    /* Autres styles spécifiques aux écrans de petite taille */
+}
